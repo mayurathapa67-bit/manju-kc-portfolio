@@ -2,36 +2,29 @@ import fs from "fs";
 import path from "path";
 import type { Content } from "./types";
 import { FALLBACK_CONTENT } from "./fallback-content";
+import { getContentFromGitHub, mergeWithFallback } from "./github-content";
 
-async function readLocalContent(): Promise<Content> {
+async function readLocalContent(): Promise<Content | null> {
   try {
     const filePath = path.join(process.cwd(), "content.json");
-    const raw = await fs.readFileSync(filePath, "utf-8");
+    const raw = fs.readFileSync(filePath, "utf-8");
     const parsed = JSON.parse(raw) as Partial<Content>;
     return mergeWithFallback(parsed);
   } catch {
-    return FALLBACK_CONTENT;
+    return null;
   }
 }
 
-function mergeWithFallback(partial: Partial<Content>): Content {
-  const base = FALLBACK_CONTENT;
-  return {
-    nav: partial.nav ?? base.nav,
-    hero: partial.hero ?? base.hero,
-    about: partial.about ?? base.about,
-    services: Array.isArray(partial.services) ? partial.services : base.services,
-    portfolio: Array.isArray(partial.portfolio) ? partial.portfolio : base.portfolio,
-    blog: Array.isArray(partial.blog) ? partial.blog : base.blog,
-    testimonials: Array.isArray(partial.testimonials)
-      ? partial.testimonials
-      : base.testimonials,
-    contact: partial.contact ?? base.contact,
-  };
-}
-
 export async function getContent(): Promise<Content> {
-  return readLocalContent();
+  // GitHub API first (works on read-only hosts / deploys).
+  const fromGithub = await getContentFromGitHub();
+  if (fromGithub) return fromGithub;
+
+  // Local file fallback (dev).
+  const local = await readLocalContent();
+  if (local) return local;
+
+  return FALLBACK_CONTENT;
 }
 
 export function getProjectBySlug(content: Content, slug: string): Content["portfolio"][number] | undefined {

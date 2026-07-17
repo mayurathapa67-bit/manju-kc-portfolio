@@ -1,41 +1,21 @@
 {
   "nav": {
-    "logo": "Manju KC",
+    "logo": "M",
     "links": [
       {
         "label": "Home",
         "href": "/"
-      },
-      {
-        "label": "About",
-        "href": "/about"
-      },
-      {
-        "label": "Work",
-        "href": "/portfolio"
-      },
-      {
-        "label": "Services",
-        "href": "/services"
-      },
-      {
-        "label": "Journal",
-        "href": "/blog"
-      },
-      {
-        "label": "Contact",
-        "href": "/contact"
       }
     ]
   },
   "hero": {
     "title": "Manju KC",
     "role": "Digital Marketing Specialist & Brand Storyteller",
-    "tagline": "Stories That Move People",
+    "tagline": "Stories 💛 — move people",
     "subtitle": "I help brands connect with their audience through authentic, data-driven marketing that feels human.",
     "cta_primary": "See My Work",
     "cta_secondary": "Let's Talk",
-    "image": "/images/hero.svg"
+    "image": "x"
   },
   "about": {
     "headline": "Behind the Strategy",
@@ -351,16 +331,12 @@
     "location": "Brisbane, Queensland / Bhaktapur, Nepal",
     "socials": [
       {
-        "platform": "Instagram",
-        "url": "https://instagram.com/manju.kc"
+        "platform": "",
+        "url": ""
       },
       {
-        "platform": "LinkedIn",
-        "url": "https://linkedin.com/in/manjukc"
-      },
-      {
-        "platform": "Behance",
-        "url": "https://behance.net/manjukc"
+        "platform": "IG",
+        "url": "https://ig"
       }
     ],
     "availability": "Currently accepting new projects"

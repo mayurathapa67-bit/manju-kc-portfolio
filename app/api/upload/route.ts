@@ -30,8 +30,46 @@ export async function POST(request: Request) {
   }
 
   const file = form.get("file");
+  const remoteUrl = typeof form.get("url") === "string" ? (form.get("url") as string) : "";
+
+  // Remote-URL path: fetch the image and upload it to Cloudinary (by URL).
+  if (!file && remoteUrl) {
+    const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+    const apiKey = process.env.CLOUDINARY_API_KEY;
+    const apiSecret = process.env.CLOUDINARY_API_SECRET;
+    if (cloudName && apiKey && apiSecret) {
+      try {
+        const { v2: cloudinary } = await import("cloudinary");
+        cloudinary.config({ cloud_name: cloudName, api_key: apiKey, api_secret: apiSecret });
+        const result = await new Promise<{
+          secure_url?: string;
+          error?: { message: string };
+        }>((resolve, reject) => {
+          cloudinary.uploader.upload(
+            remoteUrl,
+            { folder: "manju-kc-portfolio" },
+            (err: unknown, res?: { secure_url?: string; error?: { message: string } }) => {
+              if (err) reject(err);
+              else resolve(res ?? {});
+            }
+          );
+        });
+        if (result?.secure_url) {
+          return withNoStore(NextResponse.json({ url: result.secure_url, source: "cloudinary" }));
+        }
+        if (result?.error) {
+          return jsonError(`Cloudinary: ${result.error.message}`, 502, result.error);
+        }
+      } catch (e) {
+        console.error("[upload] Cloudinary URL upload failed:", e);
+        return jsonError("Could not fetch that image URL. Check the link is a direct image.", 502);
+      }
+    }
+    return jsonError("Remote URL upload requires Cloudinary to be configured.", 400);
+  }
+
   if (!(file instanceof File)) {
-    return jsonError("No file provided", 400);
+    return jsonError("No file or URL provided", 400);
   }
 
   const cloudName = process.env.CLOUDINARY_CLOUD_NAME;

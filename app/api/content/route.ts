@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { getContent } from "@/lib/content";
 import { isAuthenticated } from "@/lib/auth";
+import { saveContentToGitHub } from "@/lib/github-content";
 import type { Content } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -47,13 +48,27 @@ export async function POST(request: Request) {
     contact: { ...existing.contact, ...(body.contact ?? {}) },
   };
 
+  // Primary: persist to GitHub (works on read-only deploy hosts).
+  const gh = await saveContentToGitHub(merged);
+  if (gh.ok) {
+    return withNoStore(NextResponse.json({ ok: true, stored: "github" }));
+  }
+
+  // Fallback: local file write (dev / writable filesystems).
   try {
     const filePath = path.join(process.cwd(), "content.json");
     fs.writeFileSync(filePath, JSON.stringify(merged, null, 2), "utf-8");
-    return withNoStore(NextResponse.json({ ok: true }));
+    return withNoStore(NextResponse.json({ ok: true, stored: "local" }));
   } catch {
     return withNoStore(
-      NextResponse.json({ error: "Could not save content" }, { status: 500 })
+      NextResponse.json(
+        {
+          error:
+            "Could not save content. GitHub is not configured for this environment, and the filesystem is read-only.",
+          detail: gh.reason,
+        },
+        { status: 500 }
+      )
     );
   }
 }

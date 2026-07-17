@@ -44,13 +44,17 @@ export function AdminPanel({
 
   async function persist(next: Content) {
     try {
-      await fetch("/api/content", {
+      const res = await fetch("/api/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(next),
       });
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}));
+        flash(json.error ? `Save failed: ${json.error}` : "Save failed (500)");
+      }
     } catch {
-      /* best-effort save */
+      flash("Save failed — network error");
     }
   }
 
