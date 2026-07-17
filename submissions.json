@@ -1,5 +1,14 @@
 [
   {
+    "id": "839b277f-ef6c-4eeb-a1b3-5817b6025680",
+    "createdAt": "2026-07-17T05:08:02.109Z",
+    "name": "Playwright Tester",
+    "email": "pw@example.com",
+    "projectType": "Social Media",
+    "budget": "Not set",
+    "message": "Hello from the automated test — loving the site!"
+  },
+  {
     "id": "d48d7385-738e-43c8-968d-cff8c4725393",
     "createdAt": "2026-07-17T05:05:20.282Z",
     "name": "Playwright Tester",
