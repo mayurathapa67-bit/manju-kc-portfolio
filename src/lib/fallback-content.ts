@@ -1,0 +1,333 @@
+import type { Content } from "@/lib/types";
+
+export const FALLBACK_CONTENT: Content = {
+  nav: {
+    logo: "Manju KC",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "About", href: "/about" },
+      { label: "Work", href: "/portfolio" },
+      { label: "Services", href: "/services" },
+      { label: "Journal", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  hero: {
+    title: "Manju KC",
+    role: "Digital Marketing Specialist & Brand Storyteller",
+    tagline: "Stories That Move People",
+    subtitle:
+      "I help brands connect with their audience through authentic, data-driven marketing that feels human.",
+    cta_primary: "See My Work",
+    cta_secondary: "Let's Talk",
+    image: "/images/hero.svg",
+  },
+  about: {
+    headline: "Behind the Strategy",
+    bio: "I'm Manju — a marketer who believes the best brands feel like people, not corporations. Half my heart lives in Brisbane, the other in Bhaktapur, and somewhere in between I found my voice as a storyteller.",
+    philosophy:
+      "Marketing isn't about selling. It's about connecting — one honest story at a time.",
+    story: "My journey started with a simple question: why do some brands feel like friends while others feel like noise? That question became a career. From small shops in Bhaktapur to founders in Brisbane, I've helped people turn what they love into stories the world wants to hear.",
+    expertise: [
+      "Brand Strategy",
+      "Social Media",
+      "Content Creation",
+      "Campaign Management",
+      "Email Marketing",
+      "Storytelling",
+    ],
+    experience: [
+      {
+        role: "Brand Storyteller & Consultant",
+        company: "Independent",
+        duration: "2021 — Now",
+        story:
+          "Partnering with founders and small teams to build marketing that sounds like them, not like a template.",
+      },
+      {
+        role: "Digital Marketing Lead",
+        company: "Brisbane Studio",
+        duration: "2018 — 2021",
+        story:
+          "Led campaigns that grew quiet brands into communities people actually wanted to be part of.",
+      },
+    ],
+    personal: {
+      hobbies: [
+        "Photography walks at golden hour",
+        "Cooking Nepali food for friends",
+        "Writing letters by hand",
+        "Learning new languages",
+      ],
+      photos: ["/images/about-1.svg", "/images/about-2.svg", "/images/about-3.svg"],
+    },
+    image: "/images/about.svg",
+  },
+  services: [
+    {
+      title: "Brand Strategy & Positioning",
+      description:
+        "We'll find the words and feelings that make your brand unmistakably you — then build a story everyone remembers.",
+      icon: "compass",
+      price: "From $1,200",
+      deliverables: [
+        "Brand discovery session",
+        "Positioning & voice guide",
+        "Messaging framework",
+        "Visual mood direction",
+      ],
+      process: ["Coffee chat", "Discovery", "Positioning", "Handover"],
+    },
+    {
+      title: "Social Media Management",
+      description:
+        "Calm, consistent, beautiful content that grows a community — without the burnout or the bots.",
+      icon: "sparkles",
+      price: "From $800 / mo",
+      deliverables: [
+        "Monthly content calendar",
+        "Custom graphics & Reels",
+        "Community engagement",
+        "Monthly insight report",
+      ],
+      process: ["Onboard", "Create", "Publish", "Grow"],
+    },
+    {
+      title: "Content Creation & Campaigns",
+      description:
+        "Photography, copy, and campaigns crafted to make people stop scrolling and start feeling.",
+      icon: "camera",
+      price: "From $950",
+      deliverables: [
+        "Campaign concept",
+        "Photo & video assets",
+        "Landing page copy",
+        "Launch plan",
+      ],
+      process: ["Brief", "Create", "Launch", "Celebrate"],
+    },
+    {
+      title: "Email Marketing Automation",
+      description:
+        "Warm, human emails that land like a note from a friend — and quietly grow your revenue.",
+      icon: "mail",
+      price: "From $600 / mo",
+      deliverables: [
+        "Welcome sequence",
+        "Newsletter design",
+        "Automation flows",
+        "A/B testing",
+      ],
+      process: ["Map", "Write", "Automate", "Optimise"],
+    },
+    {
+      title: "Marketing Consulting",
+      description:
+        "A thinking partner for founders who want clarity, confidence, and a plan that actually fits.",
+      icon: "chat",
+      price: "From $150 / hr",
+      deliverables: [
+        "Strategy audit",
+        "Prioritised roadmap",
+        "Monthly check-ins",
+        "Honest feedback",
+      ],
+      process: ["Listen", "Plan", "Support", "Refine"],
+    },
+  ],
+  portfolio: [
+    {
+      slug: "lumen-skincare",
+      title: "Lumen Skincare",
+      category: "Brand Campaigns",
+      client: "Lumen",
+      description:
+        "A soft, luminous relaunch that turned a quiet skincare label into a daily ritual.",
+      challenge:
+        "Lumen had a beautiful product but a forgettable presence. We needed to make people feel something before they read a single ingredient.",
+      strategy:
+        "We built the campaign around real morning routines — soft light, honest skin, and words that sounded like a friend. Every asset was shot at golden hour.",
+      results: {
+        engagement: "+340%",
+        reach: "1.2M",
+        conversions: "+58%",
+      },
+      images: ["/images/work-1.svg", "/images/work-2.svg", "/images/work-3.svg"],
+      testimonial: {
+        quote:
+          "Manju didn't just market our product. She introduced us to ourselves.",
+        name: "Aria L.",
+        role: "Founder, Lumen",
+      },
+      published_date: "2025-03-12",
+    },
+    {
+      slug: "bhaktapur-brews",
+      title: "Bhaktapur Brews",
+      category: "Social Media",
+      client: "Bhaktapur Brews",
+      description:
+        "A community-first social presence for a neighbourhood coffee roaster.",
+      challenge:
+        "A beloved local cafe was invisible online. Regulars loved it; newcomers never found it.",
+      strategy:
+        "We told the story of the people behind the counter — their hands, their rituals, their warmth — one Reel at a time.",
+      results: {
+        engagement: "+210%",
+        reach: "480K",
+        conversions: "+44%",
+      },
+      images: ["/images/work-2.svg", "/images/work-1.svg", "/images/work-3.svg"],
+      testimonial: {
+        quote: "Our little cafe now feels like a movement. Customers call it home.",
+        name: "Ravi S.",
+        role: "Owner, Bhaktapur Brews",
+      },
+      published_date: "2025-01-20",
+    },
+    {
+      slug: "wanderwell-travel",
+      title: "Wanderwell Travel",
+      category: "Content Strategy",
+      client: "Wanderwell",
+      description:
+        "An editorial content engine for a boutique travel brand with a soul.",
+      challenge:
+        "Wanderwell had trips worth dreaming about but a blog nobody read and emails nobody opened.",
+      strategy:
+        "We rebuilt their voice around slow travel and real moments, then structured a content system their team could actually sustain.",
+      results: {
+        engagement: "+180%",
+        reach: "900K",
+        conversions: "+72%",
+      },
+      images: ["/images/work-3.svg", "/images/work-2.svg", "/images/work-1.svg"],
+      testimonial: {
+        quote: "Manju gave our brand a heartbeat. Our readers finally feel us.",
+        name: "Mei T.",
+        role: "Creative Director, Wanderwell",
+      },
+      published_date: "2024-11-05",
+    },
+    {
+      slug: "verdant-email",
+      title: "Verdant Wellness",
+      category: "Email Marketing",
+      client: "Verdant",
+      description:
+        "A gentle email journey that turned browsers into a loyal, returning community.",
+      challenge:
+        "Verdant's list was growing but silent. Beautiful products, abandoned carts, no connection.",
+      strategy:
+        "We replaced promotions with letters — warm welcome sequences, honest stories, and offers that felt like gifts.",
+      results: {
+        engagement: "+265%",
+        reach: "320K",
+        conversions: "+91%",
+      },
+      images: ["/images/work-1.svg", "/images/work-3.svg", "/images/work-2.svg"],
+      testimonial: {
+        quote: "Our open rates tripled and, more importantly, so did our trust.",
+        name: "Noa K.",
+        role: "Head of Brand, Verdant",
+      },
+      published_date: "2024-09-18",
+    },
+  ],
+  blog: [
+    {
+      slug: "marketing-feels-like-a-friend",
+      title: "Why the Best Marketing Feels Like a Friend",
+      excerpt:
+        "People don't fall in love with features. They fall in love with how a brand makes them feel at 9pm on a Tuesday.",
+      content:
+        "The brands we love don't shout. They listen. They show up consistently, say things honestly, and leave room for us to belong. In this piece I share the small shifts that turn marketing from noise into relationship — and why your audience can feel the difference instantly.",
+      category: "Strategy",
+      featured_image: "/images/blog-1.svg",
+      published_date: "2025-04-02",
+      read_time: "5 min",
+    },
+    {
+      slug: "quiet-brands-loud-love",
+      title: "Quiet Brands, Loud Love",
+      excerpt:
+        "You don't need to be the loudest in the room. You need to be the most real.",
+      content:
+        "A study in restraint: how small brands with a clear soul outshine bigger, louder competitors. Featuring three real examples and the exact words that made them stick.",
+      category: "Branding",
+      featured_image: "/images/blog-2.svg",
+      published_date: "2025-02-14",
+      read_time: "4 min",
+    },
+    {
+      slug: "reels-that-dont-feel-like-ads",
+      title: "Reels That Don't Feel Like Ads",
+      excerpt:
+        "The secret to scroll-stopping video isn't production value. It's permission to be a person.",
+      content:
+        "A practical, warm guide to making short video that people actually finish. No trend-chasing, no cringe — just stories worth watching.",
+      category: "Social Media",
+      featured_image: "/images/blog-3.svg",
+      published_date: "2025-01-09",
+      read_time: "6 min",
+    },
+    {
+      slug: "three-sentences-that-sell",
+      title: "Three Sentences That Sell Without Selling",
+      excerpt:
+        "A tiny framework for copy that connects before it converts.",
+      content:
+        "Most copy tries too hard. Here are three sentence shapes I use in every campaign to build trust first and urgency last.",
+      category: "Tips",
+      featured_image: "/images/blog-1.svg",
+      published_date: "2024-12-01",
+      read_time: "3 min",
+    },
+  ],
+  testimonials: [
+    {
+      quote:
+        "Manju didn't just market our product. She introduced us to ourselves.",
+      name: "Aria L.",
+      role: "Founder",
+      company: "Lumen",
+      avatar: "/images/avatar-1.svg",
+    },
+    {
+      quote: "Working with Manju felt less like hiring help and more like finding a partner.",
+      name: "Ravi S.",
+      role: "Owner",
+      company: "Bhaktapur Brews",
+      avatar: "/images/avatar-2.svg",
+    },
+    {
+      quote: "She gave our brand a heartbeat. Our readers finally feel us.",
+      name: "Mei T.",
+      role: "Creative Director",
+      company: "Wanderwell",
+      avatar: "/images/avatar-3.svg",
+    },
+    {
+      quote: "Our open rates tripled and, more importantly, so did our trust.",
+      name: "Noa K.",
+      role: "Head of Brand",
+      company: "Verdant",
+      avatar: "/images/avatar-1.svg",
+    },
+  ],
+  contact: {
+    email: "manju.australia05@gmail.com",
+    phone: "+61 483 919 307",
+    location: "Brisbane, Queensland / Bhaktapur, Nepal",
+    socials: [
+      { platform: "Instagram", url: "https://instagram.com/manju.kc" },
+      { platform: "LinkedIn", url: "https://linkedin.com/in/manjukc" },
+      { platform: "Behance", url: "https://behance.net/manjukc" },
+    ],
+    availability: "Currently accepting new projects",
+  },
+};
+
+export function getFallbackContent(): Content {
+  return FALLBACK_CONTENT;
+}
